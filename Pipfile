@@ -1,0 +1,17 @@
+[[source]]
+url = "https://pypi.org/simple"
+verify_ssl = true
+name = "pypi"
+
+[packages]
+alembic = "*"
+fastapi = {extras = ["all"], version = "*"}
+psycopg2-binary = "*"
+pytest = "*"
+sqlalchemy = "*"
+
+[dev-packages]
+pre-commit = "*"
+
+[requires]
+python_version = "3.10"
