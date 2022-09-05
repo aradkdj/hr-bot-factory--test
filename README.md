@@ -56,6 +56,20 @@ This project's file structure is a simplified, back-end-only spin on
 that uses [Pipenv](https://pypi.org/project/pipenv/) instead of
 [Poetry](https://pypi.org/project/poetry/) for dependency management.
 
+### ERD
+
+![ERD](./ERD.png)
+
+This database structure enabled the use of all standard SQL for implementing the card
+and message buttons instead of using PostgresQL specific extensions, as their Array
+datatype, allowing the same models to be used regardless of specific DBMS backend.
+Having "parent" tables (in the OOP sense) also allowed both the deduplication of
+`button` and `message` columns, as well as a simple mechanism for the `way` to relate
+any two messages, regardless of their type.
+
+If you wish to use a different DBMS for this project, just modify `app.core.config.py`
+and create an appropriate `.env`.
+
 ### Running the project
 
 For running either the tests or the development server, the project expects a `.env`

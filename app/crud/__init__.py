@@ -1,9 +1,28 @@
-# Import the more complex CRUD objects into this file
+from app.models.button import Button
+from app.models.button_message import ButtonMessage
+from app.models.carousel_message import CarouselMessage
+from app.models.message import Message
+from app.models.text_message import TextMessage
+from app.models.way import Way
+from app.schemas.button import ButtonCreate, ButtonUpdate
+from app.schemas.button_message import ButtonMessageCreate, ButtonMessageUpdate
+from app.schemas.carousel_message import CarouselMessageCreate, CarouselMessageUpdate
+from app.schemas.message import MessageCreate, MessageUpdate
+from app.schemas.text_message import TextMessageCreate, TextMessageUpdate
+from app.schemas.way import WayCreate, WayUpdate
 
-# For a new basic set of CRUD operations you could just do
+from .base import CRUDBase
+from .card import card  # noqa: F401
+from .card_button import card_button  # noqa: F401
+from .message_button import message_button  # noqa: F401
 
-# from .base import CRUDBase
-# from app.models.thing import Thing
-# from app.schemas.thing import ThingCreate, ThingUpdate
-
-# thing = CRUDBase[Thing, ThingCreate, ThingUpdate](Thing)
+button = CRUDBase[Button, ButtonCreate, ButtonUpdate](Button)
+button_message = CRUDBase[ButtonMessage, ButtonMessageCreate, ButtonMessageUpdate](
+    ButtonMessage
+)
+carousel_message = CRUDBase[
+    CarouselMessage, CarouselMessageCreate, CarouselMessageUpdate
+](CarouselMessage)
+message = CRUDBase[Message, MessageCreate, MessageUpdate](Message)
+text_message = CRUDBase[TextMessage, TextMessageCreate, TextMessageUpdate](TextMessage)
+way = CRUDBase[Way, WayCreate, WayUpdate](Way)
